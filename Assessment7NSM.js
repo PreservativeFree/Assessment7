@@ -4,6 +4,7 @@ let zeroFound = 0;
 let numFound = false;
 
 let isUnique = false;
+let findMax = 0;
 
 const addToZero = function(oneArray) {
     for(let i = 0; i < oneArray.length; i++) {
@@ -96,12 +97,21 @@ const isPangram = function(str) {
 //time complexity O(n)
 //space complexity O(n)
 const findLongestWord = function(arrayStr) {
-    //const arrayLengths = []
-    console.log(arrayStr[0].length)
-    //for(let i=0; arrayStr.length; i++) {
-      // arrayLengths.push(arrayStr[i].length)
-   // }
+    const arrayLengths = []
+
+    for(let i=0; i < arrayStr.length; i++) {
+      arrayLengths.push(arrayStr[i].length)
+   }
+   for(let i = 0; i < arrayLengths.length; i++) {
+        if(findMax < arrayLengths[i]) {
+            findMax = arrayLengths[i] 
+        }
+   }
+   return findMax
 }
+
+//time complexity O(n)
+//space complexity O(n)
 
 let myArray = [1, 2, 3, -2]
 console.log(addToZero(myArray))
@@ -113,4 +123,5 @@ let nextSentence = "The quick brown fox jumps over the lazy dog!"
 console.log(isPangram(nextSentence))
 
 let nextSentenceTwo = ["hi", "hello"]
-findLongestWord(nextSentenceTwo)
+console.log(findLongestWord(nextSentenceTwo));
+
