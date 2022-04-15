@@ -1,0 +1,26 @@
+Results for the smallArray
+insert 34.9 μs
+append 84 μs 
+Results for the smallArray
+insert 13.9 μs
+append 16.5 μs
+Results for the Medium Array
+insert 210 μs
+append 96.4 μs
+Results for the largeArray
+insert 9.821 ms
+append 439 μs
+Results for the extraLargeArray
+insert 963.0738 ms 
+append 4.4954 ms
+
+The pattern that I am seeing is that the the function named doubleInsert (which contains
+the unshift function) is scaling an exponential way. It takes longer for doubleInsert to finish
+doubling numbers adding and then adding an element at the beginning of the array. Meanwhile,
+the doubleAppend function is able to scale better. This is because up until it reaches 
+the XL array, the doubleAppend function which contains the push function is able to perform its
+work in μs, so it is extremely fast in doubling the values and pushing new elements into the array.
+
+
+
+
